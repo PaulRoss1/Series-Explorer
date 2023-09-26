@@ -83,7 +83,7 @@ export default function Graph({
     chart && chart.destroy();
     const handleSearch = async () => {
       setInfoText("");
-
+      setExtraInfo(null);
       setIsLoading(true);
 
       try {
@@ -95,8 +95,15 @@ export default function Graph({
           },
         });
 
+        console.log("response.data: " + JSON.stringify(response.data));
+
         if ("Error" in response.data) {
-          setInfoText("xxx");
+          setInfoText("xxx please check spelling");
+          setShowData(null);
+          chart && chart.destroy();
+          setIsLoading(false);
+        } else if (response.data.totalSeasons === "N/A") {
+          setInfoText("xxx data not avaiable");
           setShowData(null);
           chart && chart.destroy();
           setIsLoading(false);
@@ -150,7 +157,6 @@ export default function Graph({
         }
       }
 
-      console.log("ratingsData: " + JSON.stringify(ratingsData));
       setLineRatingsData(ratingsData);
       setIsLoading(false);
     };
@@ -222,6 +228,19 @@ export default function Graph({
     }
   };
 
+  // const setBarChart = () => {
+  //   chart && chart.destroy();
+  //   setChartType(TypeOfChart.Bar);
+
+  //   setTimeout(() => {
+  //     setChartType(chart && chart.destroy());
+  //   }, 1);
+
+  //   setTimeout(() => {
+  //     setChartType(TypeOfChart.Bar);
+  //   }, 100);
+  // };
+
   return (
     <div className="graph">
       {isLoading && (
@@ -229,13 +248,6 @@ export default function Graph({
           <LoadingAnimation />
         </div>
       )}
-
-      {/* {!showData && (
-        <span className="graph__text">
-          Track how your favorite TV show's ratings have evolved and uncover its
-          best episodes by entering the name above.
-        </span>
-      )} */}
 
       <span className="graph__text">{infoText}</span>
 

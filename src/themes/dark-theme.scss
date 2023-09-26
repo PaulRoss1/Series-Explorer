@@ -290,7 +290,7 @@ $font-color-two: #a7a7b3;
     }
     &__button-active {
       background: #2a2a53;
-      color: #efeff1;
+      color: #fff;
     }
     &__switch .react-switch-bg {
       background-color: #46467c !important;
@@ -300,6 +300,10 @@ $font-color-two: #a7a7b3;
     }
     &__bar {
       width: 70% !important;
+      box-sizing: border-box;
+      display: block;
+      height: 606px;
+      width: 1589px;
     }
     &__info {
       width: 30%;
@@ -309,6 +313,9 @@ $font-color-two: #a7a7b3;
       color: $font-color-two;
       font-weight: 700;
       font-size: $large-font;
+      padding-top: 10px;
+
+      max-width: 100%;
     }
     &__info-title {
       color: $font-color;
@@ -344,6 +351,8 @@ $font-color-two: #a7a7b3;
 
       // max-width: 100%;
       border-radius: 6px;
+
+      max-width: 532px;
     }
     &__line {
       max-height: 65vh;
