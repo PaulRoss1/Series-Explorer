@@ -14,11 +14,17 @@ export function generateBarChartData(barRatingsData: any, theme: string) {
       borderColor: "255, 99, 132",
     },
     light: {
-      gradientOne: "91, 82, 254",
-      gradientTwo: "0, 0, 255",
-      gradientThree: "0, 0, 255",
-      borderColor: "90, 122, 250",
+      gradientOne: "254, 94, 82",
+      gradientTwo: "255, 0, 0",
+      gradientThree: "255, 0, 0",
+      borderColor: "255, 99, 132",
     },
+    // light: {
+    //   gradientOne: "91, 82, 254",
+    //   gradientTwo: "0, 0, 255",
+    //   gradientThree: "0, 0, 255",
+    //   borderColor: "90, 122, 250",
+    // },
   };
 
   const numLabels = Array.from(
@@ -63,7 +69,7 @@ export function generateBarChartOptions(theme: string) {
       gridColor: "rgba(200, 200, 200, 0.08)",
     },
     light: {
-      gridColor: "rgba(50, 49, 49, 0.3)",
+      gridColor: "rgb(243,236,238)",
     },
   };
 

@@ -71,7 +71,7 @@ export function generateLineChartOptions(theme: string) {
       gridColor: "rgba(200, 200, 200, 0.08)",
     },
     light: {
-      gridColor: "rgba(50, 49, 49, 0.3)",
+      gridColor: "rgb(243,236,238)",
     },
   };
 

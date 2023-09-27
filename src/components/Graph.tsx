@@ -294,6 +294,8 @@ export default function Graph({
                 </span>
               </span>
               <br />
+              <span>Episode aired {extraInfo?.released}</span>
+              <br />
               <span>
                 {episode?.imdbRating}{" "}
                 <span className="graph__info-star">★</span>
@@ -301,7 +303,6 @@ export default function Graph({
               <br></br>
               <span>{extraInfo?.runtime}</span>
               <br />
-              <span>Episode aired {extraInfo?.released}</span>
               <br />
               <span className="graph__info-plot">{extraInfo?.plot}</span>
               <br />

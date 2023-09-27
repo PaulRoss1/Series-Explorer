@@ -32,8 +32,8 @@ $font-color-two: #a7a7b3;
     background-color: #202040;
     margin-left: 20px;
     margin-right: 20px;
-    border-radius: 20px;
-    margin-top: 50px;
+    border-radius: 30px;
+    margin-top: 28px;
 
     height: 716px;
   }
@@ -87,6 +87,10 @@ $font-color-two: #a7a7b3;
       padding-top: 20px;
       padding-bottom: 20px;
       cursor: pointer;
+
+      font-family: Inter-light;
+
+      border-bottom: 1px solid #0000000f;
     }
     &__container {
       display: flex;
@@ -106,10 +110,13 @@ $font-color-two: #a7a7b3;
 
       width: 599px;
       height: 56px;
+
+      border: 1px solid #0000000f;
     }
     &__input-container {
       width: 420px;
       position: relative;
+      font-family: Inter-light;
     }
     &__input {
       padding: 10px;
@@ -125,6 +132,7 @@ $font-color-two: #a7a7b3;
       color: $font-color;
       width: 100%;
       outline: none;
+      font-family: "Inter-Light";
     }
     &__suggestions-box {
       background-color: #202040;
@@ -166,13 +174,13 @@ $font-color-two: #a7a7b3;
     &__button {
       background-color: #fe5e52;
       border: none;
-      padding: 12px 20px 11px 20px;
+      // padding: 12px 20px 11px 20px;
       margin-left: 25px;
       cursor: pointer;
       color: #fff;
       font-weight: 600;
-      font-size: 16px;
-
+      font-size: 18px;
+      font-family: Inter-Light !important;
       border-radius: 16px;
       width: 144px;
       height: 46px;
@@ -185,7 +193,8 @@ $font-color-two: #a7a7b3;
       cursor: pointer;
       color: #fff;
       font-weight: 600;
-      font-size: 16px;
+      font-size: 18px;
+      font-family: Inter-Light !important;
 
       border-radius: 16px;
       width: 144px;
@@ -198,12 +207,14 @@ $font-color-two: #a7a7b3;
     // padding-bottom: 15px;
     padding-left: 20px;
     padding-right: 20px;
+    font-family: Monserat;
 
     &__data {
       // color: #666666;
       color: $font-color-two;
-      font-size: $large-font;
+      font-size: 22px;
       font-weight: 700;
+      font-weight: 400;
     }
     &__year {
       font-size: $small-font;
@@ -228,16 +239,18 @@ $font-color-two: #a7a7b3;
 
     &__text {
       color: $font-color;
-      font-size: 27px;
+      font-size: 26px;
       font-weight: 300;
       // padding-top: 135px;
       text-align: center;
-      max-width: 71%;
+      max-width: 78%;
       opacity: 0;
       animation: fadeIn 1.5s ease-in forwards;
 
       position: absolute;
       top: 163px;
+
+      font-family: Monserat;
     }
     @keyframes fadeIn {
       0% {
@@ -265,7 +278,7 @@ $font-color-two: #a7a7b3;
     }
     &__button-container {
       position: absolute !important;
-      top: -30px;
+      top: -34px;
       right: 20px;
     }
     &__button-left {
@@ -273,9 +286,12 @@ $font-color-two: #a7a7b3;
       padding: 9px;
       border-radius: 20px 0px 0px 20px;
       border: 2px solid #17172f;
-      width: 110px;
+      width: 113px;
       cursor: pointer;
       background: #1c1c39;
+
+      font-family: "Monserat";
+      font-size: 14px;
     }
     &__button-right {
       background: none;
@@ -284,9 +300,12 @@ $font-color-two: #a7a7b3;
       border-radius: 0px 20px 20px 0px;
       border: 2px solid #17172f;
       border-left: none;
-      width: 110px;
+      width: 113px;
       cursor: pointer;
       background: #1c1c39;
+
+      font-family: "Monserat";
+      font-size: 14px;
     }
     &__button-active {
       background: #2a2a53;
@@ -311,14 +330,21 @@ $font-color-two: #a7a7b3;
       // margin-top: 10px;
       // color: #666666
       color: $font-color-two;
-      font-weight: 700;
-      font-size: $large-font;
+      font-size: 16px;
+
+      // font-weight: 700;
+      // font-size: $large-font;
       padding-top: 10px;
 
+      font-family: Monserat;
+      font-weight: 400;
+
       max-width: 100%;
+      line-height: 24px;
     }
     &__info-title {
       color: $font-color;
+      font-size: 22px;
     }
     &__info-year {
       font-size: $small-font;
