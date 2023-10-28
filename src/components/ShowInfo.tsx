@@ -28,5 +28,7 @@ export default function ShowInfo({ showData }: ShowInfoProps) {
         </span>
       </div>
     );
+  } else {
+    return null;
   }
 }

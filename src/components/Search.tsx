@@ -66,7 +66,7 @@ export default function Search({
   };
 
   const handleKeyPress = (event: { key: string }) => {
-    if (event.key === "Enter") {
+    if (event.key === "Enter" && query.length > 0) {
       setSuggestions([]);
       setSearchedShow(query);
     }
@@ -91,6 +91,7 @@ export default function Search({
   const handleLogoClick = () => {
     setSearchedShow("");
     setShowData(null);
+    setQuery("");
     setInfoText(
       "Track how your favorite TV show's ratings have evolved and uncover its best episodes by entering the name above."
     );
@@ -98,21 +99,23 @@ export default function Search({
 
   return (
     <div className="search">
-      <img
-        onClick={() => handleLogoClick()}
-        className="search__logo"
-        src="https://svgshare.com/getbyhash/sha1-3YuKJbuAYyH8Yn6dbSvIJcCiaxs="
-      />
+      <div className="search__header">
+        <img
+          onClick={() => handleLogoClick()}
+          className="search__logo"
+          src="https://svgshare.com/getbyhash/sha1-3YuKJbuAYyH8Yn6dbSvIJcCiaxs="
+        />
 
-      <h1 onClick={() => handleLogoClick()} className="search__title">
-        Series Explorer
-      </h1>
+        <h1 onClick={() => handleLogoClick()} className="search__title">
+          Series Explorer
+        </h1>
 
-      <ReactSwitch
-        checked={true}
-        onChange={toggleTheme}
-        className="search__switch"
-      />
+        <ReactSwitch
+          checked={true}
+          onChange={toggleTheme}
+          className="search__switch"
+        />
+      </div>
 
       <div className="search__container">
         <div className="search__input-container">
@@ -146,7 +149,11 @@ export default function Search({
             className={
               query.length > 0 ? "search__button" : "search__button-disabled"
             }
-            onClick={() => setSearchedShow(query)}
+            onClick={() => {
+              if (query.length > 0) {
+                setSearchedShow(query);
+              }
+            }}
           >
             Search
           </button>

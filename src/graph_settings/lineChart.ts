@@ -1,4 +1,9 @@
-export function generateLineChartData(lineRatingsData: any, theme: string) {
+import { Episode } from "../api/interfaces";
+
+export function generateLineChartData(
+  lineRatingsData: Episode[],
+  theme: string
+) {
   let colors: {
     [key: string]: {
       gradientOne: string;
@@ -33,7 +38,7 @@ export function generateLineChartData(lineRatingsData: any, theme: string) {
   };
 
   return {
-    labels: lineRatingsData.map((item: any) => {
+    labels: lineRatingsData.map((item: Episode) => {
       const formattedSeason = item.season.toString().padStart(2, "0");
       const formattedEpisode = item.episode.toString().padStart(2, "0");
       return `${item.title} (S${formattedSeason}E${formattedEpisode})`;
@@ -41,7 +46,9 @@ export function generateLineChartData(lineRatingsData: any, theme: string) {
     datasets: [
       {
         label: "Episode Rating",
-        data: lineRatingsData.map((item: any) => parseFloat(item.imdbRating)),
+        data: lineRatingsData.map((item: Episode) =>
+          parseFloat(item.imdbRating)
+        ),
         pointBackgroundColor: `${colors[theme].pointBackgroundColor}`,
         backgroundColor: (context: any) => {
           const ctx = context.chart.ctx;

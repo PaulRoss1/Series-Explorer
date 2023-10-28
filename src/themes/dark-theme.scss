@@ -34,7 +34,6 @@ $font-color-two: #a7a7b3;
     margin-right: 20px;
     border-radius: 30px;
     margin-top: 28px;
-
     height: 716px;
   }
 
@@ -80,17 +79,21 @@ $font-color-two: #a7a7b3;
     &__switch path {
       display: none;
     }
+    &__header {
+      height: 79px;
+      background-color: #202040;
+      border-bottom: 1px solid #0000000f;
+    }
     &__title {
       color: $font-color;
       margin-top: 0;
-      background-color: #202040;
       padding-top: 20px;
       padding-bottom: 20px;
       cursor: pointer;
 
       font-family: Inter-light;
-
-      border-bottom: 1px solid #0000000f;
+      width: fit-content;
+      margin: auto;
     }
     &__container {
       display: flex;
@@ -112,6 +115,8 @@ $font-color-two: #a7a7b3;
       height: 56px;
 
       border: 1px solid #0000000f;
+
+      margin-top: 20px;
     }
     &__input-container {
       width: 420px;

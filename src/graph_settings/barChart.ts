@@ -1,4 +1,6 @@
-export function generateBarChartData(barRatingsData: any, theme: string) {
+import { Episode } from "../api/interfaces";
+
+export function generateBarChartData(barRatingsData: Episode[], theme: string) {
   let colors: {
     [key: string]: {
       gradientOne: string;
@@ -38,7 +40,9 @@ export function generateBarChartData(barRatingsData: any, theme: string) {
     datasets: [
       {
         label: "Episode Rating",
-        data: barRatingsData.map((item: any) => parseFloat(item.imdbRating)),
+        data: barRatingsData.map((item: Episode) =>
+          parseFloat(item.imdbRating)
+        ),
         pointBackgroundColor: "#fff",
         backgroundColor: (context: any) => {
           const ctx = context.chart.ctx;

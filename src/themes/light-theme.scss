@@ -98,17 +98,21 @@ $font-color-light: #323131;
     // &__switch .react-switch-bg {
     //   background-color: #46467c !important;
     // }
+    &__header {
+      height: 79px;
+      background-color: #fff;
+      border-bottom: 1px solid #0000000f;
+    }
     &__title {
       color: #323131;
       margin-top: 0;
-      background-color: #fff;
       padding-top: 20px;
       padding-bottom: 20px;
       cursor: pointer;
 
       font-family: Inter-light;
-
-      border-bottom: 1px solid #0000000f;
+      width: fit-content;
+      margin: auto;
     }
     &__container {
       display: flex;
@@ -129,6 +133,7 @@ $font-color-light: #323131;
       width: 599px;
       height: 56px;
       border: 1px solid #0000000f;
+      margin-top: 20px;
     }
     &__input-container {
       width: 420px;

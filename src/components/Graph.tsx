@@ -72,7 +72,8 @@ export default function Graph({
           console.log("error");
         }
       } catch (error) {
-        console.error(error);
+        // console.error(error);
+        // pass;
       }
     };
     retrieveExtraInfo(episode?.id);
@@ -94,8 +95,6 @@ export default function Graph({
             type: "series",
           },
         });
-
-        console.log("response.data: " + JSON.stringify(response.data));
 
         if ("Error" in response.data) {
           setInfoText("xxx please check spelling");
@@ -142,7 +141,7 @@ export default function Graph({
                 episode: j + 1,
               });
             } catch (error: any) {
-              console.log(error.message);
+              // console.log(error.message);
             }
           } else {
             ratingsData.push({
