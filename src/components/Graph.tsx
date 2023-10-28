@@ -250,6 +250,7 @@ export default function Graph({
       )}
 
       <span className="graph__text">{infoText}</span>
+      <span className="graph__text-small-screen">xxx screen too small</span>
 
       {chart && infoText.length === 0 && (
         <div className="graph__button-container">
