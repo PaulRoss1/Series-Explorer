@@ -35,10 +35,18 @@ $font-color-two: #a7a7b3;
     border-radius: 30px;
     margin-top: 28px;
     height: 716px;
+
+    @media only screen and (max-width: 767px) {
+      background-color: #242447;
+    }
   }
 
   .search {
     text-align: center;
+
+    @media only screen and (max-width: 767px) {
+      visibility: hidden;
+    }
 
     &__logo {
       position: absolute;

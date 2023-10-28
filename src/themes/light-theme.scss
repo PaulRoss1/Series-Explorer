@@ -36,14 +36,21 @@ $font-color-light: #323131;
     margin-right: 20px;
     border-radius: 30px;
     margin-top: 28px;
-
     height: 716px;
-
     box-shadow: 0px 0px 6px 0px #00000026;
+
+    @media only screen and (max-width: 767px) {
+      background-color: #fbfbfb;
+      box-shadow: none;
+    }
   }
 
   .search {
     text-align: center;
+
+    @media only screen and (max-width: 767px) {
+      visibility: hidden;
+    }
 
     &__logo {
       position: absolute;

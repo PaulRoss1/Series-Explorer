@@ -50,9 +50,10 @@ export default function Graph({
 
   const barRatingsData = [...lineRatingsData]
     .sort((a, b) => parseFloat(b.imdbRating) - parseFloat(a.imdbRating))
-    .slice(0, 20);
+    .slice(0, 15);
 
   useEffect(() => {
+    setExtraInfo(null);
     setIsLoading(true);
     const retrieveExtraInfo = async (id: string | undefined) => {
       let url = `https://www.omdbapi.com/?i=${id}&apikey=ed39c59`;
