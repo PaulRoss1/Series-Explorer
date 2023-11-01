@@ -8,32 +8,21 @@ export function generateLineChartData(
     [key: string]: {
       gradientOne: string;
       gradientTwo: string;
-      gradientThree: string;
       pointBackgroundColor: string;
       borderColor: string;
     };
   } = {
     dark: {
-      gradientOne: "254, 132, 123",
-      gradientTwo: "255, 0, 0",
-      // gradientTwo: "254, 132, 123",
-      gradientThree: "255, 0, 0",
-      pointBackgroundColor: "#000",
-      borderColor: "255, 99, 132",
+      gradientOne: "255, 90, 10",
+      gradientTwo: "255, 90, 10",
+      pointBackgroundColor: "#202040",
+      borderColor: "255,90,10",
     },
     light: {
-      // gradientOne: "91, 82, 254",
-      // gradientTwo: "0, 0, 255",
-      // gradientThree: "0, 0, 255",
-      // pointBackgroundColor: "#fff",
-      // borderColor: "90, 122, 250",
-
-      gradientOne: "254, 132, 123",
-      gradientTwo: "255, 0, 0",
-      // gradientTwo: "254, 132, 123",
-      gradientThree: "255, 0, 0",
-      pointBackgroundColor: "#000",
-      borderColor: "255, 99, 132",
+      gradientOne: "255, 90, 10",
+      gradientTwo: "255, 90, 10",
+      pointBackgroundColor: "#fff",
+      borderColor: "255,90,10",
     },
   };
 
@@ -53,9 +42,8 @@ export function generateLineChartData(
         backgroundColor: (context: any) => {
           const ctx = context.chart.ctx;
           const gradient = ctx.createLinearGradient(0, 0, 0, 400);
-          gradient.addColorStop(0, `rgba(${colors[theme].gradientOne}, 0.3)`);
-          gradient.addColorStop(0.5, `rgba(${colors[theme].gradientTwo}, 0.2)`);
-          gradient.addColorStop(1, `rgba(${colors[theme].gradientThree}, 0)`);
+          gradient.addColorStop(0, `rgba(${colors[theme].gradientOne}, 0.25)`);
+          gradient.addColorStop(1, `rgba(${colors[theme].gradientTwo}, 0)`);
           return gradient;
         },
         borderColor: `rgba(${colors[theme].borderColor}, 1)`,
@@ -68,17 +56,23 @@ export function generateLineChartData(
   };
 }
 
-export function generateLineChartOptions(theme: string) {
+export function generateLineChartOptions(
+  theme: string,
+  lineRatingsData: Episode[]
+) {
   let colors: {
     [key: string]: {
       gridColor: string;
+      firstEpisodeGridColor: string;
     };
   } = {
     dark: {
       gridColor: "rgba(200, 200, 200, 0.08)",
+      firstEpisodeGridColor: "rgba(200, 200, 200, 0.4)",
     },
     light: {
       gridColor: "rgb(243,236,238)",
+      firstEpisodeGridColor: "#C2BDBE",
     },
   };
 
@@ -102,7 +96,15 @@ export function generateLineChartOptions(theme: string) {
     scales: {
       x: {
         grid: {
-          color: `${colors[theme].gridColor}`,
+          color: (context: any) => {
+            const labelIndex = context.tick && context.tick.value;
+            const isFirstEpisode =
+              labelIndex && lineRatingsData[labelIndex]?.episode === 1;
+
+            return isFirstEpisode
+              ? colors[theme].firstEpisodeGridColor
+              : colors[theme].gridColor;
+          },
           lineWidth: 1,
         },
         ticks: {

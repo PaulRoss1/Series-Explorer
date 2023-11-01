@@ -34,7 +34,8 @@ $font-color-two: #a7a7b3;
     margin-right: 20px;
     border-radius: 30px;
     margin-top: 28px;
-    height: 716px;
+    // height: 716px;
+    height: 77vh;
 
     @media only screen and (max-width: 767px) {
       background-color: #242447;
@@ -102,6 +103,10 @@ $font-color-two: #a7a7b3;
       font-family: Inter-light;
       width: fit-content;
       margin: auto;
+
+      @media only screen and (max-width: 767px) {
+        display: none;
+      }
     }
     &__container {
       display: flex;
@@ -125,6 +130,10 @@ $font-color-two: #a7a7b3;
       border: 1px solid #0000000f;
 
       margin-top: 20px;
+
+      @media only screen and (max-width: 767px) {
+        display: none;
+      }
     }
     &__input-container {
       width: 420px;
@@ -159,6 +168,7 @@ $font-color-two: #a7a7b3;
       max-height: 118px;
       border: 4px solid #202040;
       border-top: 0;
+      z-index: 2;
     }
     &__suggestions {
       margin: 0;
@@ -406,7 +416,8 @@ $font-color-two: #a7a7b3;
     }
     &__image-container {
       width: 100%;
-      height: 300px;
+      // height: 300px;
+      height: 36vh;
       overflow: hidden;
       position: relative;
       // margin-top: 10px;
@@ -425,7 +436,7 @@ $font-color-two: #a7a7b3;
       // max-width: 100%;
       border-radius: 6px;
 
-      max-width: 532px;
+      // max-width: 532px;
     }
     &__line {
       max-height: 65vh;

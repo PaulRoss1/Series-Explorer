@@ -179,7 +179,7 @@ export default function Graph({
     chart && chart.destroy();
     if (chartType === TypeOfChart.Line && lineRatingsData.length > 0) {
       const lineChartData = generateLineChartData(lineRatingsData, theme);
-      const lineChartOptions = generateLineChartOptions(theme);
+      const lineChartOptions = generateLineChartOptions(theme, lineRatingsData);
 
       renderChart(TypeOfChart.Line, lineChartData, lineChartOptions);
     } else if (chartType === TypeOfChart.Bar && barRatingsData.length > 0) {

@@ -36,7 +36,9 @@ $font-color-light: #323131;
     margin-right: 20px;
     border-radius: 30px;
     margin-top: 28px;
-    height: 716px;
+    // height: 716px;
+    height: 77vh;
+
     box-shadow: 0px 0px 6px 0px #00000026;
 
     @media only screen and (max-width: 767px) {
@@ -120,6 +122,10 @@ $font-color-light: #323131;
       font-family: Inter-light;
       width: fit-content;
       margin: auto;
+
+      @media only screen and (max-width: 767px) {
+        display: none;
+      }
     }
     &__container {
       display: flex;
@@ -141,6 +147,10 @@ $font-color-light: #323131;
       height: 56px;
       border: 1px solid #0000000f;
       margin-top: 20px;
+
+      @media only screen and (max-width: 767px) {
+        display: none;
+      }
     }
     &__input-container {
       width: 420px;
@@ -175,6 +185,7 @@ $font-color-light: #323131;
       max-height: 118px;
       border: 4px solid #fff;
       border-top: 0;
+      z-index: 2;
     }
     &__suggestions {
       margin: 0;
@@ -421,7 +432,8 @@ $font-color-light: #323131;
     }
     &__image-container {
       width: 100%;
-      height: 300px;
+      // height: 300px;
+      height: 36vh;
       overflow: hidden;
       position: relative;
       // margin-top: 10px;
@@ -440,7 +452,7 @@ $font-color-light: #323131;
       // max-width: 100%;
       border-radius: 6px;
 
-      max-width: 532px;
+      // max-width: 532px;
     }
     &__line {
       max-height: 65vh;
@@ -463,7 +475,7 @@ $font-color-light: #323131;
 /// LOADING ANIMATION //////////////////////////////
 ////////////////////////////////////////////////////
 
-#dark {
+#light {
   .container {
     display: block;
     height: 100px;

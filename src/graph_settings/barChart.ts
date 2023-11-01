@@ -5,28 +5,19 @@ export function generateBarChartData(barRatingsData: Episode[], theme: string) {
     [key: string]: {
       gradientOne: string;
       gradientTwo: string;
-      gradientThree: string;
       borderColor: string;
     };
   } = {
     dark: {
-      gradientOne: "254, 94, 82",
-      gradientTwo: "255, 0, 0",
-      gradientThree: "255, 0, 0",
-      borderColor: "255, 99, 132",
+      gradientOne: "255, 90, 10",
+      gradientTwo: "255, 90, 10",
+      borderColor: "255,90,10",
     },
     light: {
-      gradientOne: "254, 94, 82",
-      gradientTwo: "255, 0, 0",
-      gradientThree: "255, 0, 0",
-      borderColor: "255, 99, 132",
+      gradientOne: "255, 90, 10",
+      gradientTwo: "255, 90, 10",
+      borderColor: "255,90,10",
     },
-    // light: {
-    //   gradientOne: "91, 82, 254",
-    //   gradientTwo: "0, 0, 255",
-    //   gradientThree: "0, 0, 255",
-    //   borderColor: "90, 122, 250",
-    // },
   };
 
   const numLabels = Array.from(
@@ -47,12 +38,8 @@ export function generateBarChartData(barRatingsData: Episode[], theme: string) {
         backgroundColor: (context: any) => {
           const ctx = context.chart.ctx;
           const gradient = ctx.createLinearGradient(1000, 0, 0, 0);
-          gradient.addColorStop(0, `rgba(${colors[theme].gradientOne}, 0.5)`);
-          gradient.addColorStop(
-            0.5,
-            `rgba(${colors[theme].gradientTwo}, 0.25)`
-          );
-          gradient.addColorStop(1, `rgba(${colors[theme].gradientThree}, 0)`);
+          gradient.addColorStop(0, `rgba(${colors[theme].gradientOne}, 0.25)`);
+          gradient.addColorStop(1, `rgba(${colors[theme].gradientTwo}, 0)`);
           return gradient;
         },
         borderColor: `rgba(${colors[theme].borderColor}, 1)`,
