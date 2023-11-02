@@ -67,8 +67,10 @@ export default function Search({
 
   const handleKeyPress = (event: { key: string }) => {
     if (event.key === "Enter" && query.length > 0) {
-      setSuggestions([]);
       setSearchedShow(query);
+      setTimeout(() => {
+        setSuggestions([]);
+      }, 300);
     }
   };
 
@@ -98,9 +100,10 @@ export default function Search({
   };
 
   return (
-    <div className="search">
+    <header className="search">
       <div className="search__header">
         <img
+          alt="logo"
           onClick={() => handleLogoClick()}
           className="search__logo"
           src="https://svgshare.com/getbyhash/sha1-3YuKJbuAYyH8Yn6dbSvIJcCiaxs="
@@ -119,7 +122,12 @@ export default function Search({
 
       <div className="search__container">
         <div className="search__input-container">
+          <label htmlFor="show" className="search__label">
+            Enter a TV show name
+          </label>
+
           <input
+            id="show"
             type="text"
             className="search__input"
             placeholder="Enter a TV show name"
@@ -159,6 +167,6 @@ export default function Search({
           </button>
         </div>
       </div>
-    </div>
+    </header>
   );
 }

@@ -37,6 +37,18 @@ $font-color-two: #a7a7b3;
     // height: 716px;
     height: 77vh;
 
+    @media only screen and (max-width: 1440px) {
+      height: 75vh;
+    }
+
+    @media only screen and (max-width: 1024px) {
+      height: 65vh;
+    }
+
+    @media only screen and (max-width: 820px) {
+      height: 80vh;
+    }
+
     @media only screen and (max-width: 767px) {
       background-color: #242447;
     }
@@ -140,6 +152,11 @@ $font-color-two: #a7a7b3;
       position: relative;
       font-family: Inter-light;
     }
+    &__label {
+      position: absolute;
+      width: 1px;
+      overflow: hidden;
+    }
     &__input {
       padding: 10px;
       font-size: 16px;
@@ -242,6 +259,10 @@ $font-color-two: #a7a7b3;
       font-size: 22px;
       font-weight: 700;
       font-weight: 400;
+
+      @media only screen and (max-width: 819px) {
+        font-size: 19px;
+      }
     }
     &__year {
       font-size: $small-font;
@@ -277,6 +298,14 @@ $font-color-two: #a7a7b3;
       top: 163px;
 
       font-family: Monserat;
+
+      @media only screen and (max-width: 1024px) {
+        top: 122px;
+      }
+
+      @media only screen and (max-width: 820px) {
+        top: 322px;
+      }
 
       @media only screen and (max-width: 767px) {
         display: none;
@@ -324,6 +353,13 @@ $font-color-two: #a7a7b3;
       // text-align: center;
 
       margin-top: 170px;
+
+      @media only screen and (max-width: 1024px) {
+        margin-top: 84px;
+      }
+      @media only screen and (max-width: 820px) {
+        margin-top: 160px;
+      }
     }
     &__button-container {
       position: absolute !important;
@@ -369,13 +405,25 @@ $font-color-two: #a7a7b3;
     }
     &__bar-container {
       display: flex;
+
+      @media only screen and (max-width: 820px) {
+        height: 450px;
+      }
+
+      @media only screen and (max-width: 768px) {
+        height: 400px;
+      }
     }
     &__bar {
       width: 70% !important;
       box-sizing: border-box;
       display: block;
       height: 606px;
-      width: 1589px;
+
+      @media only screen and (max-width: 820px) {
+        width: 100% !important;
+        height: 100% !important;
+      }
     }
     &__info {
       width: 30%;
@@ -395,13 +443,29 @@ $font-color-two: #a7a7b3;
       max-width: 100%;
       line-height: 24px;
 
+      @media only screen and (max-width: 820px) {
+        display: none;
+      }
+
       @media only screen and (max-width: 767px) {
         visibility: hidden;
       }
+
+      br:nth-child(2),
+      br:nth-child(11) {
+        @media only screen and (max-width: 1024px) {
+          display: none;
+        }
+      }
     }
+
     &__info-title {
       color: $font-color;
       font-size: 22px;
+
+      @media only screen and (max-width: 1024px) {
+        font-size: 18px;
+      }
     }
     &__info-year {
       font-size: $small-font;
@@ -413,6 +477,10 @@ $font-color-two: #a7a7b3;
     &__info-plot {
       font-size: $small-font;
       font-weight: 300;
+
+      @media only screen and (max-width: 1024px) {
+        font-size: 12px;
+      }
     }
     &__image-container {
       width: 100%;
@@ -422,6 +490,19 @@ $font-color-two: #a7a7b3;
       position: relative;
       // margin-top: 10px;
       border-radius: 6px;
+
+      @media only screen and (max-width: 1440px) {
+        height: 26vh;
+      }
+
+      @media only screen and (max-width: 1024px) {
+        display: none;
+      }
+
+      @media only screen and (max-width: 820px) {
+        display: initial;
+        height: 20vh;
+      }
     }
     &__image {
       position: absolute;
@@ -438,8 +519,39 @@ $font-color-two: #a7a7b3;
 
       // max-width: 532px;
     }
+    &__tablet-info {
+      display: none;
+
+      @media only screen and (max-width: 820px) {
+        display: flex;
+        width: 100%;
+        margin-top: 20px;
+        margin-left: 61px;
+      }
+    }
+    &__tablet-info-text {
+      @media only screen and (max-width: 820px) {
+        padding-left: 30px;
+        padding-right: 51px;
+        width: 551px;
+      }
+      br:nth-child(1) {
+        @media only screen and (max-width: 820px) {
+          display: none;
+        }
+      }
+      // }
+    }
     &__line {
       max-height: 65vh;
+
+      @media only screen and (max-width: 1440px) {
+        max-height: 61vh;
+      }
+
+      @media only screen and (max-width: 1024px) {
+        max-height: 47vh;
+      }
 
       @media only screen and (max-width: 767px) {
         visibility: hidden;
@@ -447,6 +559,14 @@ $font-color-two: #a7a7b3;
     }
     &__bar {
       max-height: 65vh;
+
+      @media only screen and (max-width: 1440px) {
+        max-height: 61vh;
+      }
+
+      @media only screen and (max-width: 1024px) {
+        max-height: 47vh;
+      }
 
       @media only screen and (max-width: 767px) {
         visibility: hidden;

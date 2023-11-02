@@ -41,11 +41,11 @@ export default function App() {
     <div className="App" id={theme}>
       <Search {...searchProps} />
 
-      <div className="content-wrapper">
+      <main className="content-wrapper">
         <ShowInfo {...showInfoProps} />
 
         <Graph {...graphProps} />
-      </div>
+      </main>
     </div>
   );
 }

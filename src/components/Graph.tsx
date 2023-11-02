@@ -98,12 +98,12 @@ export default function Graph({
         });
 
         if ("Error" in response.data) {
-          setInfoText("xxx please check spelling");
+          setInfoText("Oops! Double-check the spelling and try again.");
           setShowData(null);
           chart && chart.destroy();
           setIsLoading(false);
         } else if (response.data.totalSeasons === "N/A") {
-          setInfoText("xxx data not avaiable");
+          setInfoText("Sorry, no data for that show. Try another one.");
           setShowData(null);
           chart && chart.destroy();
           setIsLoading(false);
@@ -250,7 +250,10 @@ export default function Graph({
       )}
 
       <span className="graph__text">{infoText}</span>
-      <span className="graph__text-small-screen">xxx screen too small</span>
+      <span className="graph__text-small-screen">
+        Sorry, this site isn't compatible with small screens. Please switch to a
+        larger device.
+      </span>
 
       {chart && infoText.length === 0 && (
         <div className="graph__button-container">
@@ -275,14 +278,49 @@ export default function Graph({
         </div>
       )}
       {chartType === TypeOfChart.Bar ? (
-        <div className="graph__bar-container">
-          <canvas className="graph__bar" id="myChart"></canvas>
+        <>
+          <div className="graph__bar-container">
+            <canvas className="graph__bar" id="myChart"></canvas>
 
-          {!isLoading && infoText.length === 0 && (
-            <div className="graph__info">
-              <div className="graph__image-container">
-                <img className="graph__image" src={extraInfo?.image} />
+            {!isLoading && infoText.length === 0 && (
+              <div className="graph__info">
+                <div className="graph__image-container">
+                  <img className="graph__image" src={extraInfo?.image} />
+                </div>
+                <br />
+                <span className="graph__info-title">
+                  {episode?.title}{" "}
+                  <span className="graph__info-year">
+                    {"(S" +
+                      episode?.season?.toString().padStart(2, "0") +
+                      "E" +
+                      episode?.episode?.toString().padStart(2, "0") +
+                      ")"}
+                  </span>
+                </span>
+                <br />
+                <span>Episode aired {extraInfo?.released}</span>
+                <br />
+                <span>
+                  {episode?.imdbRating}{" "}
+                  <span className="graph__info-star">★</span>
+                </span>
+                <br></br>
+                <span>{extraInfo?.runtime}</span>
+                <br />
+                <br />
+                <span className="graph__info-plot">{extraInfo?.plot}</span>
+                <br />
               </div>
+            )}
+          </div>
+
+          <div className="graph__info graph__tablet-info">
+            <div className="graph__image-container graph__tablet-image-container">
+              <img className="graph__image" src={extraInfo?.image} />
+            </div>
+
+            <div className="graph__tablet-info-text">
               <br />
               <span className="graph__info-title">
                 {episode?.title}{" "}
@@ -308,8 +346,8 @@ export default function Graph({
               <span className="graph__info-plot">{extraInfo?.plot}</span>
               <br />
             </div>
-          )}
-        </div>
+          </div>
+        </>
       ) : (
         <canvas className="graph__line" id="myChart"></canvas>
       )}
