@@ -5,7 +5,7 @@ import "./themes/dark-theme.scss";
 import Search from "./components/Search";
 import ShowInfo from "./components/ShowInfo";
 import Graph from "./components/Graph";
-import { ShowData, ShowDataError, ThemeOptions } from "./api/interfaces";
+import { ShowData, ShowDataError, ThemeOptions } from "./types/types";
 
 export default function App() {
   const [theme, setTheme] = useState(ThemeOptions.Dark);
@@ -40,10 +40,8 @@ export default function App() {
   return (
     <div className="App" id={theme}>
       <Search {...searchProps} />
-
       <main className="content-wrapper">
         <ShowInfo {...showInfoProps} />
-
         <Graph {...graphProps} />
       </main>
     </div>

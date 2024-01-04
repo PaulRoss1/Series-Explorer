@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import ReactSwitch from "react-switch";
 import axios from "axios";
-import { ShowData, ShowDataError, ThemeOptions } from "../api/interfaces";
+import { ShowData, ShowDataError, ThemeOptions } from "../types/types";
 
 const OMDB_API_URL = "https://www.omdbapi.com/";
 const OMDB_API_KEY = "8ea4c4c5";
@@ -62,6 +62,7 @@ export default function Search({
 
   const handleSuggestionClick = (item: string) => {
     setSuggestions([]);
+    setQuery(item.split("(")[0]);
     setSearchedShow(item.split("(")[0]);
   };
 
@@ -132,6 +133,7 @@ export default function Search({
             className="search__input"
             placeholder="Enter a TV show name"
             value={query}
+            autoComplete="off"
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={handleKeyPress}
           />

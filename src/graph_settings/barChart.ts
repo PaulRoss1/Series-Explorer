@@ -1,4 +1,4 @@
-import { Episode } from "../api/interfaces";
+import { Episode } from "../types/types";
 
 export function generateBarChartData(barRatingsData: Episode[], theme: string) {
   let colors: {

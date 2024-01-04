@@ -1,4 +1,4 @@
-import { ShowData, ShowDataError } from "../api/interfaces";
+import { ShowData, ShowDataError } from "../types/types";
 
 export interface ShowInfoProps {
   showData: ShowData | ShowDataError | null;

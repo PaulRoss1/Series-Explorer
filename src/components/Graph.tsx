@@ -1,14 +1,13 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Chart, { ChartType, ChartTypeRegistry } from "chart.js/auto";
-import ReactSwitch from "react-switch";
 import {
   ShowData,
   ShowDataError,
   Episode,
   ExtraInfo,
   TypeOfChart,
-} from "../api/interfaces";
+} from "../types/types";
 import LoadingAnimation from "./LoadingAnimation";
 import {
   generateLineChartData,
@@ -18,9 +17,10 @@ import {
   generateBarChartData,
   generateBarChartOptions,
 } from "../graph_settings/barChart";
+import LoadingAnimationSmall from "./LoadingAnimationSmall";
 
 const OMDB_API_URL = "https://www.omdbapi.com/";
-const OMDB_API_KEY = "8ea4c4c5";
+const OMDB_API_KEY = String(process.env.REACT_APP_API_KEY);
 
 export interface GraphProps {
   searchedShow: string;
@@ -62,19 +62,19 @@ export default function Graph({
         const response = await axios.get(url);
         const data = response.data;
 
-        setExtraInfo({
-          image: data.Poster.replace("_V1_SX300.jpg", "_V1_SX500.jpg"),
-          plot: data.Plot,
-          released: data.Released,
-          runtime: data.Runtime,
-        });
+        data.Poster &&
+          setExtraInfo({
+            image: data.Poster.replace("_V1_SX300.jpg", "_V1_SX500.jpg"),
+            plot: data.Plot,
+            released: data.Released,
+            runtime: data.Runtime,
+          });
 
         if (data.Error) {
           console.log("error");
         }
       } catch (error) {
-        // console.error(error);
-        // pass;
+        console.error(error);
       }
     };
     retrieveExtraInfo(episode?.id);
@@ -142,7 +142,7 @@ export default function Graph({
                 episode: j + 1,
               });
             } catch (error: any) {
-              // console.log(error.message);
+              console.log(error);
             }
           } else {
             ratingsData.push({
@@ -211,7 +211,7 @@ export default function Graph({
           try {
             setEpisode(episodeData[chart.getActiveElements()[0].index]);
           } catch (error) {
-            // console.error("error");
+            // console.error(error);
           }
         },
       };
@@ -227,19 +227,6 @@ export default function Graph({
       }
     }
   };
-
-  // const setBarChart = () => {
-  //   chart && chart.destroy();
-  //   setChartType(TypeOfChart.Bar);
-
-  //   setTimeout(() => {
-  //     setChartType(chart && chart.destroy());
-  //   }, 1);
-
-  //   setTimeout(() => {
-  //     setChartType(TypeOfChart.Bar);
-  //   }, 100);
-  // };
 
   return (
     <div className="graph">
@@ -285,7 +272,13 @@ export default function Graph({
             {!isLoading && infoText.length === 0 && (
               <div className="graph__info">
                 <div className="graph__image-container">
-                  <img className="graph__image" src={extraInfo?.image} />
+                  {extraInfo?.image ? (
+                    <img className="graph__image" src={extraInfo?.image} />
+                  ) : (
+                    <div>
+                      <LoadingAnimationSmall />
+                    </div>
+                  )}
                 </div>
                 <br />
                 <span className="graph__info-title">
