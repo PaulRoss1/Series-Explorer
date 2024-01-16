@@ -6,7 +6,7 @@ https://series-explorer.netlify.app/
 
 ## Description
 
-A web application for trackig how TV show's ratings have evolved over time, displaying data on a graph using the charting library Chart.js. Users can also view a list of the top rated episodes of a TV show. This application utilizes the IMDb API.
+A web application for tracking how TV show's ratings have evolved over time, displaying data on a graph using the charting library Chart.js. Users can also view a list of the top rated episodes of a TV show. This application utilizes the IMDb API.
 <br>
 
 [![Series Explorer](https://i.postimg.cc/L6HCtLg1/series-explorer.png)](#!)
